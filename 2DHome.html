@@ -21,8 +21,8 @@
             max-width: 1000px; /* Max width to maintain a good ratio */
             height: auto;
             padding: 20px; /* Space for the neon border */
-            box-shadow: 0 0 20px #800080, 0 0 30px #800080, 0 0 40px #800080, 0 0 50px #FF00FF;
             border-radius: 10px;
+            animation: neonGlow 3s infinite alternate;
         }
         .image {
             width: 100%; /* Fill the container */
@@ -44,11 +44,20 @@
             color: #0FF; /* Neon cyan color */
             text-shadow: 0 0 5px #0FF, 0 0 10px #0FF, 0 0 20px #0FF, 0 0 30px #00FFFF, 0 0 40px #00FFFF, 0 0 50px #00FFFF, 0 0 60px #00FFFF;
         }
+
+        @keyframes neonGlow {
+            0% {
+                box-shadow: 0 0 10px #aa00ff, 0 0 20px #aa00ff, 0 0 30px #aa00ff, 0 0 40px #dd00ff;
+            }
+            100% {
+                box-shadow: 0 0 20px #dd00ff, 0 0 30px #dd00ff, 0 0 40px #aa00ff, 0 0 50px #aa00ff;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="your_image.jpg" alt="Background Image" class="image">
+        <img src="home.jpg" alt="Background Image" class="image">
         <div class="overlay">
             <div class="parameter">Temperature: <span id="temperature">--</span> °C</div>
             <div class="parameter">Humidity: <span id="humidity">--</span> %</div>
@@ -58,30 +67,7 @@
 
     <script src="https://www.unpkg.com/@eohjsc/era-widget@1.0.14/src/index.js"></script>
     <script>
-        const eraWidget = new EraWidget();
-        /* let configTemp, configHum, configPower;
-
-        eraWidget.onConfiguration((configuration) => {
-            configTemp = configuration.realtime_configs.find(config => config.name === 'Temperature');
-            configHum = configuration.realtime_configs.find(config => config.name === 'Humidity');
-            configPower = configuration.realtime_configs.find(config => config.name === 'Power Consumption');
-        });
-
-        eraWidget.onValues((values) => {
-            if (configTemp) {
-                document.getElementById('temperature').textContent = values[configTemp.id].value.toFixed(2);
-            }
-            if (configHum) {
-                document.getElementById('humidity').textContent = values[configHum.id].value.toFixed(2);
-            }
-            if (configPower) {
-                document.getElementById('power').textContent = values[configPower.id].value.toFixed(2);
-            }
-        });
-
-        eraWidget.ready(); */
-        
-        // Generate random values for demonstration purposes
+        // Random value generator
         function getRandomValue(min, max) {
             return (Math.random() * (max - min) + min).toFixed(2);
         }
@@ -97,7 +83,6 @@
         
         // Initial values
         updateValues();
-
     </script>
 </body>
 </html>
