@@ -17,12 +17,18 @@
         }
         .container {
             position: relative;
-            width: 80%;
-            max-width: 800px;
+            width: 100%; /* Full width */
+            max-width: 1000px; /* Max width to maintain a good ratio */
+            height: auto;
+            padding: 20px; /* Space for the neon border */
+            box-shadow: 0 0 20px #800080, 0 0 30px #800080, 0 0 40px #800080, 0 0 50px #FF00FF;
+            border-radius: 10px;
         }
         .image {
-            width: 100%;
+            width: 100%; /* Fill the container */
+            height: auto;
             border-radius: 8px;
+            border: 5px solid transparent; /* Base for neon border */
         }
         .overlay {
             position: absolute;
@@ -30,17 +36,19 @@
             left: 10%;
             transform: translate(-10%, -10%);
             color: white;
-            font-size: 1.5em;
+            font-size: 1.2em; /* Adjusted font size */
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
         .parameter {
-            margin-bottom: 10px;
+            margin-bottom: 5px; /* Reduced margin for better spacing */
+            color: #0FF; /* Neon cyan color */
+            text-shadow: 0 0 5px #0FF, 0 0 10px #0FF, 0 0 20px #0FF, 0 0 30px #00FFFF, 0 0 40px #00FFFF, 0 0 50px #00FFFF, 0 0 60px #00FFFF;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="home.jpg" alt="Background Image" class="image">
+        <img src="your_image.jpg" alt="Background Image" class="image">
         <div class="overlay">
             <div class="parameter">Temperature: <span id="temperature">--</span> °C</div>
             <div class="parameter">Humidity: <span id="humidity">--</span> %</div>
@@ -51,7 +59,7 @@
     <script src="https://www.unpkg.com/@eohjsc/era-widget@1.0.14/src/index.js"></script>
     <script>
         const eraWidget = new EraWidget();
-        let configTemp, configHum, configPower;
+        /* let configTemp, configHum, configPower;
 
         eraWidget.onConfiguration((configuration) => {
             configTemp = configuration.realtime_configs.find(config => config.name === 'Temperature');
@@ -71,7 +79,25 @@
             }
         });
 
-        eraWidget.ready();
+        eraWidget.ready(); */
+        
+        // Generate random values for demonstration purposes
+        function getRandomValue(min, max) {
+            return (Math.random() * (max - min) + min).toFixed(2);
+        }
+
+        function updateValues() {
+            document.getElementById('temperature').textContent = getRandomValue(18, 30); // Random temperature between 18°C and 30°C
+            document.getElementById('humidity').textContent = getRandomValue(30, 70); // Random humidity between 30% and 70%
+            document.getElementById('power').textContent = getRandomValue(100, 500); // Random power consumption between 100W and 500W
+        }
+
+        // Update values every 5 seconds
+        setInterval(updateValues, 5000);
+        
+        // Initial values
+        updateValues();
+
     </script>
 </body>
 </html>
