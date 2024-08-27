@@ -28,7 +28,7 @@
         }
 
         .menu-container, .house-container {
-            display: none;
+            display: none; /* Initially hidden */
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -45,7 +45,7 @@
         }
 
         .menu-container.active, .house-container.active {
-            display: flex;
+            display: flex; /* Display when active */
         }
 
         .menu-header {
@@ -72,7 +72,7 @@
             font-size: 1.5em;
             font-weight: bold;
             color: white;
-            background-color: #ff6347; /* Tomato color for buttons */
+            background-color: #ff6347;
             border: none;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -83,7 +83,7 @@
         .menu-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            background-color: #ff4500; /* Darker tomato color on hover */
+            background-color: #ff4500;
         }
 
         .menu-button:active {
@@ -92,49 +92,15 @@
         }
 
         .menu-button:nth-child(2) {
-            background-color: #4682b4; /* SteelBlue color for second button */
+            background-color: #4682b4;
         }
 
         .menu-button:nth-child(2):hover {
-            background-color: #4169e1; /* RoyalBlue color on hover */
+            background-color: #4169e1;
         }
 
         .menu-button:nth-child(2):active {
             background-color: #4682b4;
-        }
-
-        .menu-overflow {
-            width: 150%;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin-top: 30px;
-            margin-left: -25%;
-        }
-
-        .menu-overflow-item {
-            text-align: center;
-            padding: 10px;
-            background-color: #eee;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .menu-overflow-item:hover {
-            background-color: #ddd;
-        }
-
-        .sound-icon {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            width: 24px;
-            height: 24px;
         }
 
         .house-container {
@@ -151,17 +117,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 0; /* No padding */
+            padding: 0;
             box-shadow: 0 0 10px #aa00ff, 0 0 20px #aa00ff, 0 0 30px #aa00ff, 0 0 40px #dd00ff;
             border-radius: 10px;
             animation: neonGlow 3s infinite alternate;
-            background-color: white; /* Tiny border color */
+            background-color: white;
         }
 
         .image {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures the image fills the container while maintaining aspect ratio */
+            object-fit: cover;
             border-radius: 8px;
         }
 
@@ -171,13 +137,13 @@
             left: 10%;
             transform: translate(-10%, -10%);
             color: white;
-            font-size: 1.2em; /* Adjusted font size */
+            font-size: 1.2em;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
 
         .parameter {
-            margin-bottom: 5px; /* Reduced margin for better spacing */
-            color: #0FF; /* Neon cyan color */
+            margin-bottom: 5px;
+            color: #0FF;
             text-shadow: 0 0 5px #0FF, 0 0 10px #0FF, 0 0 20px #0FF, 0 0 30px #00FFFF, 0 0 40px #00FFFF, 0 0 50px #00FFFF, 0 0 60px #00FFFF;
         }
 
@@ -203,16 +169,8 @@
         <div class="menu-header">Explore Your Smart Home</div>
         <div class="menu-description">Choose the home layout you would like to explore:</div>
         <div class="menu-buttons">
-            <div class="menu-item" onclick="loadHouse('house1')">
-                <img src="home1.jpg" alt="House 1">
-                <div class="menu-item-title">House 1</div>
-                <div class="menu-sub-item">Modern & Stylish</div>
-            </div>
-            <div class="menu-item" onclick="loadHouse('house2')">
-                <img src="home2.jpg" alt="House 2">
-                <div class="menu-item-title">House 2</div>
-                <div class="menu-sub-item">Cozy & Comfortable</div>
-            </div>
+            <div class="menu-button" onclick="loadHouse('house1')">House 1</div>
+            <div class="menu-button" onclick="loadHouse('house2')">House 2</div>
         </div>
     </div>
 
