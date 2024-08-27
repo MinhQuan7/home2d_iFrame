@@ -17,18 +17,19 @@
         }
         .container {
             position: relative;
-            width: 100%; /* Full width */
-            max-width: 1000px; /* Max width to maintain a good ratio */
+            width: 100%;
+            max-width: 1000px; /* Maintain aspect ratio */
             height: auto;
-            padding: 20px; /* Space for the neon border */
+            padding: 5px; /* Small padding for a tiny border */
+            box-shadow: 0 0 10px #aa00ff, 0 0 20px #aa00ff, 0 0 30px #aa00ff, 0 0 40px #dd00ff;
             border-radius: 10px;
             animation: neonGlow 3s infinite alternate;
+            background-color: white; /* Tiny border color */
         }
         .image {
             width: 100%; /* Fill the container */
             height: auto;
             border-radius: 8px;
-            border: 5px solid transparent; /* Base for neon border */
         }
         .overlay {
             position: absolute;
@@ -65,7 +66,6 @@
         </div>
     </div>
 
-    <script src="https://www.unpkg.com/@eohjsc/era-widget@1.0.14/src/index.js"></script>
     <script>
         // Random value generator
         function getRandomValue(min, max) {
